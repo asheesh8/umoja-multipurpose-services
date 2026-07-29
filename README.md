@@ -1,35 +1,29 @@
-# Umoja Multipurpose Cleaning Services — Website Rebuild Kit
+# Umoja Multipurpose Cleaning Services
 
-This folder is a self-contained kit that uses **Claude Code** to rebuild
-Umoja Multipurpose Cleaning Services's website from scratch: a modern, smooth, fast site that shows off their
-real Google reviews and the imagery already on their current site.
+Static-first website and lightweight request desk for Umoja Multipurpose Cleaning Services in Essex Junction, Vermont.
 
-## What's inside
+## Run Locally
 
-```
-umoja-multipurpose-cleaning-services-website-kit/
-├── rebuild.sh          # one command — runs Claude Code to build the site
-├── PROMPT.md           # the build brief Claude follows
-├── CLAUDE.md           # working rules for Claude during the build
-├── data/
-│   ├── business.json   # name, contact, address, rating, branding, photos
-│   └── reviews.json    # real Google reviews (author, rating, text)
-└── site/
-    └── index.html      # starter shell — Claude rebuilds this into the full site
+Open `index.html` directly for the static site. The quote form will save requests in browser storage and show them in `#admin`.
+
+For the local API and file-backed admin workflow:
+
+```bash
+npm start
 ```
 
-## How to run it
+Then open `http://localhost:5577`. Requests are stored in `data/requests.local.json`, which is intentionally ignored by git.
 
-1. Install Claude Code: https://docs.claude.com/claude-code
-2. From inside this folder, run:
+## Checks
 
-   ```bash
-   ./rebuild.sh
-   ```
+```bash
+npm test
+```
 
-3. Claude reads `data/business.json` + `data/reviews.json` and rewrites
-   everything under `site/` into a polished multi-section website.
-4. Open `site/index.html` in a browser to preview, then deploy anywhere
-   (Netlify, Vercel, GitHub Pages, or any static host).
+## Structure
 
-No build tools required — the output is plain HTML/CSS/JS.
+- `index.html` - immersive six-scene app shell
+- `styles.css` - responsive visual system and fixed desktop/mobile layout
+- `script.js` - scene routing, quote form, admin desk, export tools, static fallback storage
+- `server.mjs` - no-dependency Node API and static file server
+- `tests/api.test.mjs` - API coverage for create, list, validation, and status updates

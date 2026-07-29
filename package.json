@@ -1,0 +1,13 @@
+{
+  "name": "umoja-multipurpose-services",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/api.test.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
