@@ -2,6 +2,12 @@
 
 Static-first website and lightweight request desk for Umoja Multipurpose Cleaning Services in Essex Junction, Vermont.
 
+**Live:** https://umoja-multipurpose-services.vercel.app
+
+> On Vercel only the static files are served; `server.mjs` does not run there, so quote requests fall back to the visitor's browser storage and the `#admin` desk only shows requests made in that same browser. Run `npm start` on a server with a disk (or add a serverless endpoint) for requests to reach the business.
+
+**Environment variables:** `PORT` and `UMOJA_REQUESTS_FILE` (optional, for `server.mjs`). No secrets.
+
 ## Run Locally
 
 Open `index.html` directly for the static site. The quote form will save requests in browser storage and show them in `#admin`.
